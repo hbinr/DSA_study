@@ -8,7 +8,7 @@
 
 
 class Stack:
-    """ 实现自定义栈 """
+    """ 实现自定义栈,以list末尾为栈顶"""
 
     # 构造方法
     def __init__(self, maxlen=10):
@@ -52,7 +52,7 @@ class Stack:
         else:
             print('Stack is full!')
 
-    # 出栈
+    # 出栈,删除栈顶元素
     def pop(self):
         # 栈为空的时候无法出栈
         if self._content:
@@ -60,6 +60,15 @@ class Stack:
             self._current -= 1
             # 弹出并返回列表尾部元素
             return self._content.pop()
+        else:
+            print("Stack is empty!")
+
+    # 返回栈顶元素,不会删除
+    def peek(self):
+        # 栈为空的时候无法出栈
+        if self._content:
+            # 弹出并返回列表尾部元素
+            return self._content[self._current - 1]
         else:
             print("Stack is empty!")
 

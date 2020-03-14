@@ -29,7 +29,7 @@ class Stack:
     def isEmpty(self):
         return not self._content
 
-    # 修改栈的大小
+    # 设置栈大小
     def setSize(self, size):
         # 新的栈大小必须大于已有元素数量
         if size < self._current:

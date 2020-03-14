@@ -60,6 +60,16 @@ def baseConvert(decNumber, base):
     return result
 
 
+
+def Dec2Bin(num):
+    result = ''
+    if num:
+        result = Dec2Bin(num // 2)
+        print(result)
+        return result + str(num % 2)
+    else:
+        return result
+
 if __name__ == '__main__':
     result = divideBy2(35)
     print('10进制数转2进制,结果:', result)
@@ -73,3 +83,5 @@ if __name__ == '__main__':
 
     result = baseConvert(1000, 8)
     print('1000转8进制:', result)
+
+    print(Dec2Bin(10))

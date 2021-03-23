@@ -1,9 +1,3 @@
-/*
- * @Author: duanhaobin
- * @Date: 2021-03-23 18:22:34
- * @LastEditTime: 2021-03-23 18:38:30
- */
-
 package arraystack
 
 import (

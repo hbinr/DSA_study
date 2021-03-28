@@ -4,6 +4,11 @@
  */
 package array
 
+import (
+	"fmt"
+	"testing"
+)
+
 /*
 	2021-3-27  脉脉一面面试题 ，使用二分查找 O(log n)
 
@@ -23,3 +28,27 @@ package array
 	假如存在[1,2,3,4,5]和[2,3,4,5,1]这两种情况，左侧的mid和left比较，并不能决定最小值是在左侧还是右侧，因为左侧都是有序的。
 	而如果比较mid和right的话，如果右侧是有序的，即nums[mid]<nums[right]，那最小值一定是在包含mid的左侧
 */
+
+func TestFindMin2(t *testing.T) {
+	fmt.Println("min value: ", findMin2([]int{4, 5, 6, 7, 0, 1, 2}))
+}
+func findMin2(nums []int) int {
+	if len(nums) == 1 {
+		return nums[0]
+	}
+	left, right := 0, len(nums)-1
+	if nums[right] > nums[0] {
+		return nums[0]
+	}
+	for left < right {
+		mid := left + (right-left)>>1
+		if nums[mid] > nums[right] {
+			left = mid + 1
+		} else if nums[mid] < nums[right] {
+			right = mid
+		} else {
+			right--
+		}
+	}
+	return nums[left]
+}

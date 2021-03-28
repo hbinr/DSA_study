@@ -14,13 +14,12 @@ import (
 
 // 1.先创建map来保存括号对应关系，key为反括号，value为对应key匹配括号类。注意细节，key值为反括号
 // 2.遍历入参字符串长度，然后从mp中取一个括号入栈（随机的），此时该括号元素为栈顶
-// 3.判断栈元素(stack[len(stack
 // 3.判断栈元素(stack[len(stack)-1])和字符串中给定的某个括号(pairs[s[i]])是否相同：
 //   补充：
 //  	 - (stack[len(stack)-1]) 的值为入参字符串的某个括号
 //   	 - (pairs[s[i]])  只有三个值： (, [, {
 //    3.1 不相同，如 '(' != ']' ,显然这不满足括号匹配的条件，直接返回false
-//    3.2 相同，如 '(' == '('，则后续还需要再判断否有一个字符为 ‘)’ 才能满足调件。
+//    3.2 相同，如 '(' == '('，则后续还需要再判断否有一个字符为 ‘)’ 才能满足条件。
 //    这儿有个技巧，如果相同，直接将栈顶元出栈，再看下一个括号
 //    这样就保证栈顶始终只维持是一个元素，
 //
@@ -83,7 +82,7 @@ func isValid2(s string) bool {
 		if char == '(' || char == '[' || char == '{' {
 			stack = append(stack, char)
 
-		} else if len(stack) != 0 && stack[len(stack)-1] == pairs[char] { // 2.如果括号匹配，则出战
+		} else if len(stack) != 0 && stack[len(stack)-1] == pairs[char] { // 2.如果括号匹配，则出栈
 			stack = stack[:len(stack)-1]
 		} else {
 			return false

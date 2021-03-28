@@ -32,14 +32,14 @@ import (
 		如果是，我们就找到了我们的目标，如果不是我们将其设为 -1（标示该元素非目标元素）如果第二次遍历最终没有找到目标，直接返回 -1即可。
 */
 
-func TestLastStringChar(t *testing.T) {
-	fmt.Println("0-'a'", 'd'-'a')
-	fmt.Println("res: ", lastStringChar("loveleetcode"))
-	fmt.Println("res2: ", lastStringChar2("loveleetcode"))
+func TestFirstUniqChar(t *testing.T) {
+	fmt.Println("0-'a'", 'd'-'a') // 3
+	fmt.Println("res: ", firstUniqChar("loveleetcode"))
+	fmt.Println("res2: ", firstUniqChar2("loveleetcode"))
 }
 
 // 方法一：调用 标准库 strings 的方法
-func lastStringChar(s string) byte {
+func firstUniqChar(s string) byte {
 	l := len(s)
 	if l == 0 {
 		return ' '
@@ -54,11 +54,11 @@ func lastStringChar(s string) byte {
 	return ' '
 }
 
-// 方法一：调用 标准库 strings 的方法
-func lastStringChar2(s string) byte {
+// 方法二 遍历26个字母
+func firstUniqChar2(s string) byte {
 	cnt := [26]int{}
 	for _, ch := range s {
-		cnt[ch-'a']++
+		cnt[ch-'a']++ // ASCII编码中 a 为97
 	}
 	fmt.Println("cnt为：", cnt)
 	for i, ch := range s {

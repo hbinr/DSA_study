@@ -53,18 +53,18 @@ func (b *BST) add(node *Node, e interface{}) *Node {
 }
 
 // 中序遍历
-func (b *BST) PreOrder() {
-	b.preOrder(b.root)
+func (b *BST) InOrder() {
+	b.inOrder(b.root)
 }
 
 // 中序遍历
-func (b *BST) preOrder(node *Node) {
+func (b *BST) inOrder(node *Node) {
 	if node == nil {
 		return
 	}
-	b.preOrder(node.left)
+	b.inOrder(node.left)
 	fmt.Println(node.e) // 中序遍历：在左右子树中间访问节点
-	b.preOrder(node.right)
+	b.inOrder(node.right)
 }
 
 // 后序遍历

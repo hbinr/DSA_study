@@ -100,7 +100,7 @@ func (lru *LRUCache) Put(key int, value int) {
 		return
 	}
 	// 如果LRUCache 容量已满，删除最久未被使用的数据
-	if lru.Cap == lru.Cache.size {
+	if lru.Cap == lru.Cache.Size() {
 		lru.removeNotUsed()
 	}
 
@@ -176,6 +176,9 @@ func (dl *DuLinkedList) removeFirst() *Node {
 	first := dl.head.next // 虚拟头节点的next才是真正的头节点
 	dl.remove(first)
 	return first
+}
+func (dl *DuLinkedList) Size() int {
+	return dl.size
 }
 
 // -------------end 双向链表操作-----------

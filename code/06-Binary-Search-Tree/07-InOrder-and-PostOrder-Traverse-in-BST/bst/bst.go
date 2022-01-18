@@ -43,6 +43,7 @@ func (b *BST) add(node *Node, e interface{}) *Node {
 		return newNode(e)
 	}
 
+	// 当前节点的元素小于新元素 e，则向右子树中添加
 	if utils.Compare(e, node.e) > 0 {
 		node.right = b.add(node.right, e)
 	} else if utils.Compare(e, node.e) < 0 {

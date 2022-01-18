@@ -1,8 +1,11 @@
-package main
+package arraybasic
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
-func main() {
+func TestArrayBasic(t *testing.T) {
 	var arr [10]int
 	for i, arrLen := 0, len(arr); i < arrLen; i++ {
 		arr[i] = i * 2

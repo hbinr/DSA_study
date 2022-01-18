@@ -41,5 +41,4 @@ func LevelOrderDump(root *TreeNode) {
 			levelStacks = append(levelStacks, right)
 		}
 	}
-	fmt.Println("")
 }
